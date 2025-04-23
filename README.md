@@ -14,4 +14,4 @@ The copyFilesUSB.ino sketch shows transfer speeds when coping a 32meg file from 
 
 There are probably bugs!!
 
-# Use these exxamples at your own risk. No gaurantees given. 
+# Use these examples at your own risk. No gaurantees given. 
