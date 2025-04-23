@@ -8,6 +8,10 @@ Unzip this file.
 
 This file must be copied to one of the USB drives or the SD drive. Preferably USB drive 1 or all of them.
 
+The bench.ino examples gives a good indication of read/write speed of a particular USB drive.
+
+The copyFilesUSB.ino sketch shows transfer speeds when coping a 32meg file from one device to another.
+
 There are probably bugs!!
 
 # Use these exxamples at your own risk. No gaurantees given. 
