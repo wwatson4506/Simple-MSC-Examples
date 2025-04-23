@@ -2,6 +2,8 @@
 
 These are some simple examples of using USBHost_t36 and USB drives and TD1.59 - TD 1.60B3.
 
+Copy this library to your local Arduino sketchbook to use.They will only be seen in the sketchbook.
+
 In the "copyFilesUSB" you will find the zipped file that gets copied all over the place (32MEGfile.dat.zip).
 
 Unzip this file. 
