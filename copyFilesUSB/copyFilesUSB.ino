@@ -89,7 +89,7 @@ int fileCopy(File *src, File *dest, bool stats) {
 	finish = (micros() - start); // Get total copy time.
     float MegaBytes = (bytesRW*1.0f)/(1.0f*finish); // Convert to float.
 	if(stats) // If true, display time stats.
-		Serial.printf("\nCopied %u bytes in %f seconds. Speed: %f MB/s\n",
+		Serial.printf("\nCopied %u bytes in %f seconds. Speed: %3.1f MB/s\n",
 		                 bytesRW,(1.0*finish)/1000000.0,MegaBytes);
 	return copyError; // Return any errors or success.
 }
