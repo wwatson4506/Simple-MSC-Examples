@@ -127,7 +127,8 @@ bool checkConnected(USBDrive &drive) {
     delay(1);
   if(!drive.msDriveInfo.connected) { // If nothing turns up, nothing connected.
     Serial.println("No drive connected yet!!!!");
-    Serial.println("Connect a drive to continue...");
+    Serial.println("Connect a drive to continue or if not using USB drive2");
+    Serial.println("Make sure the 'DRIVE_COUNT' define is set to 1...");
     while(!drive.msDriveInfo.connected) delay(1); // Wait for a device to be plugged in.
   }
   return true; // Always return true.
