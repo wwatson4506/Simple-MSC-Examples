@@ -178,8 +178,8 @@ void loop(void) {
 	Serial.printf("\n------------------------------------------------------------------\n");
 	Serial.printf("Select:\n");
 #if DRIVE_COUNT == 2
-	Serial.printf("   1)  to copy '%s' from USB drive 1 to USB drive 2.\n", file2Copy);
-	Serial.printf("   2)  to copy '%s' from USB drive 2 to USB drive 1.\n", file2Copy);
+	Serial.printf("   1)  to copy '%s' from USB drive 1 to USB drive 1.\n", file2Copy);
+	Serial.printf("   2)  to copy '%s' from USB drive 2 to USB drive 2.\n", file2Copy);
 #endif
 	Serial.printf("   3)  to copy '%s' from USB drive 1 to SDIO card.\n", file2Copy);
 
