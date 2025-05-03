@@ -20,7 +20,11 @@
 // Define the number of USB drives to test (1 or 2). If count equals 2
 // and only one USB drive plugged in sketch will wait for a drive to
 // be plugged in. This will also happen if no drives are pluged in.
-#define DRIVE_COUNT 2
+#define DRIVE_COUNT 2 //1
+
+#define USB1 7
+#define USB2 8
+#define SD1  9
 
 // Setup USBHost_t36 and as many HUB ports as needed.
 USBHost myusb;
@@ -95,16 +99,24 @@ int fileCopy(File *src, File *dest, bool stats) {
 }
 
 // List Directories using SdFat "ls()" call.
-void listDirectories(void) {
+void listDirectories(uint8_t device) {
 	Serial.printf("-------------------------------------------------\n");
-	Serial.printf("\nUSB drive 1 directory listing:\n");
-	msc1.mscfs.ls("/", LS_R | LS_DATE | LS_SIZE);
-#if DRIVE_COUNT == 2
-	Serial.printf("\nUSB drive 2 directory listing:\n");
-	msc2.mscfs.ls("/", LS_R | LS_DATE | LS_SIZE);
-#endif
-	Serial.printf("\nSDIO card directory listing:\n");
-	SD.sdfs.ls("/", LS_R | LS_DATE | LS_SIZE);
+    switch(device) {
+		case USB1:
+			Serial.printf("\nUSB drive 1 directory listing:\n");
+			msc1.mscfs.ls("/", LS_R | LS_DATE | LS_SIZE);
+			break;
+		case USB2:
+			Serial.printf("\nUSB drive 2 directory listing:\n");
+			msc2.mscfs.ls("/", LS_R | LS_DATE | LS_SIZE);
+			break;
+		case SD1:
+			Serial.printf("\nSDIO card directory listing:\n");
+			SD.sdfs.ls("/", LS_R | LS_DATE | LS_SIZE);
+		default:
+			Serial.printf("-------------------------------------------------\n");
+			return;
+    }
 	Serial.printf("-------------------------------------------------\n");
 }
 
@@ -128,7 +140,7 @@ void setup()
     yield(); // wait for serial port to connect.
   }
 
-  Serial.printf("MULTI USB DRIVE AND SD CARD FILE COPY TESTING\n\n");
+  Serial.printf("%cMULTI USB DRIVE AND SD CARD FILE COPY TESTING\n\n",12);
  
   // Start USBHost_t36, HUB(s) and USB devices.
   myusb.begin();
@@ -190,8 +202,12 @@ void loop(void) {
 #if DRIVE_COUNT == 2
 	Serial.printf("   6)  to copy '%s' from SDIO card to USB drive 2.\n", file2Copy);
 #endif
+	Serial.printf("   7)  List USB Drive 1 Directory\n");
+#if DRIVE_COUNT == 2
+	Serial.printf("   8)  List USB Drive 2 Directory\n");
+#endif
+	Serial.printf("   9)  List SD card Directory\n");
 
-	Serial.printf("   d)  List Directories\n");
 	Serial.printf("------------------------------------------------------------------\n");
 
 	while(!Serial.available()) myusb.Task(); // Support hot plugging.
@@ -308,8 +324,16 @@ void loop(void) {
 				Serial.printf("File Copy Failed with code: %d\n",copyResult);
 			}
 			break;
-		case 'd':
-			listDirectories();
+		case '7':
+			listDirectories(7);
+			break;
+#if DRIVE_COUNT == 2
+		case '8':
+			listDirectories(8);
+			break;
+#endif
+		case '9':
+			listDirectories(9);
 			break;
 		default:
 			break;
