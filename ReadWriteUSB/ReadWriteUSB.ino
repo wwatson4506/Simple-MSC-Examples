@@ -31,6 +31,9 @@ USBHub hub4(myusb);
 USBDrive myDrive(myusb);
 USBFilesystem firstPartition(myusb);
 
+// WARNING:
+// You must make sure an existing file with incompatible none text data does not exist
+// on the drive!!!
 File myFile;
 
 void setup()
