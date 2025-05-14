@@ -1,6 +1,6 @@
 # Simple-MSC-Examples
 
-These are some simple examples of using USBHost_t36 and USB drives and TD1.59 - TD 1.60B3.
+These are some simple examples of using USBHost_t36 and USB drives and TD1.59 - TD 1.60B4.
 
 Copy this library to your local Arduino sketchbook to use.They will only be seen in the sketchbook.
 
