@@ -123,8 +123,12 @@ void setup()
       entry.close(); // Close thiss file entry.
     }
   }
+#if defined(USB_TO_SD)
   Serial.println("\nAll files in USB root directory have been copied to the SDCARD.");
-  Serial.println("**** FINISHED ****");
+#else
+  Serial.println("\nAll files in SDCARD root directory have been copied to the USB drive.");
+#endif
+	Serial.println("**** FINISHED ****");
   	
 }
 
