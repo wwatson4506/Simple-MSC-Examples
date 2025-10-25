@@ -97,7 +97,7 @@ int fileCopy(File *src, File *dest, bool stats) {
 // a regular file on the source drive then copies it to the destination
 // drive. It opens the source file for reading and opens the destination
 // file for writing. (bails on error).
-//   File dir: is the source directory for source file to read.
+//   File dir: is the source directory for source file(s0 to read.
 //   uint8_t source: is the source drive identifier (USB1 or SD1).
 // Then it calls the fileCopy(&file1,&file2,stats) function.
 //   &file1: Address of source file pointer.
