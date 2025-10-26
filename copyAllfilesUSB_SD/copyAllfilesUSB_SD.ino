@@ -37,7 +37,7 @@ USBDrive msDrive1(myusb);
 // SDIO card chipselect pin def. (254)
 const int chipSelect = BUILTIN_SDCARD;
 
-// Create USB instances. Two USB drives.
+// Create USB instances. One USB drive.
 USBFilesystem msc1(myusb);
 
 // Create file copy source and destination file pointers.
